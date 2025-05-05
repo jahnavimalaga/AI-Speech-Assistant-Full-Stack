@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-image: url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+        }
+        a {
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <h1><center>Medicine Recommendation</center></h1>
+    <div class="container">
+        
+        <h2>Login Name:</h2>
+        <form method="POST">
+            <input type="text" name="user_message" placeholder="Type something..." required>
+            <input type="submit" value="Submit">
+        </form>
+
+        {% if message %}
+            <h3>You said:</h3>
+            <p>{{ message }}</p>
+        {% endif %}
+
+        <p><a href="{{ url_for('second') }}">Go to Second Page</a></p>
+    </div>
+</body>
+</html>
