@@ -17,7 +17,7 @@
             background-color: rgba(0, 0, 0, 0.6);
             padding: 30px;
             border-radius: 10px;
-            max-width: 500px;
+            max-width: 600px;
         }
         a {
             color: #ffcc00;
@@ -26,10 +26,15 @@
 </head>
 <body>
     <div class="container">
-        <h2>Welcome to the Second Page!</h2>
-        <p>This is a continuation of your app.</p>
-        {% if message %}
-            <h3>Welcome {{ message }}</h3>
+        <h2>Welcome {{message}}! </h2>
+        <h3>Speak with the AI Assistant for any question about the App</h3>
+        <form method="POST">
+            <input type="text" name="user_message" placeholder="Type something..." required autocomplete="off">
+            <input type="submit" value="Submit">
+        </form>
+        {% if response1 %}
+            <p>{{ response1 }}</p>   
+            <p>{{ ai_reply }}</p>
         {% endif %}
         <p><a href="{{ url_for('home') }}">Go back to Home Page</a></p>
     </div>
