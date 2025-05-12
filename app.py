@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for
+from main import AI_Speech_Chatbot as chatbot
 
 app = Flask(__name__)
 
@@ -16,7 +17,10 @@ def second():
         user_input = request.form.get('user_message')
         response = f"You asked: {user_input}"
         #(AI response would go here)
-        ai_reply = "This is a simulated AI response."
+        ai_chatbot = chatbot()
+        # print(ai_chatbot.greet())
+        ai_reply = ai_chatbot.respond(user_input)
+        #print(" AI Reply: ", ai_reply1)
         ai_reply = 'Response: ' + ai_reply
         return render_template('second.html', message=request.args.get('message', ''), response1=response, ai_reply=ai_reply)
     
